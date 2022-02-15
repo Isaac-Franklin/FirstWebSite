@@ -1,0 +1,92 @@
+<?php
+	include_once 'db.php';
+	include_once 'headermain.php';
+	session_start();
+?>
+<body>
+<script>
+	function Calc(){
+	let getValue1 = parseInt(document.querySelector("#value1").value);
+	let getValue2 = parseInt(document.querySelector("#value2").value);
+	let getOperator = document.querySelector("#operator").value;
+	let calculate;
+
+	let getCalculate = document.querySelector(".calculater");
+
+		if (getOperator == "add") {
+			calculate = getValue1 + getValue2;
+		}
+		else if(getOperator == "sub") {
+			calculate = getValue1 - getValue2;
+		}
+		else if(getOperator == "mul") {
+			calculate = getValue1 * getValue2;
+		}
+		else if(getOperator == "div") {
+			calculate = getValue1 / getValue2;
+		}
+
+	getCalculate.innerHTML = calculate;
+}
+</script>
+
+<?php
+	if (!isset($_SESSION['id'])) {
+		echo '
+			<div class="top-body">
+				<form action="main.php" method="POST" class="form">
+					<h2>Lets Keep In Touch</h2>
+					<input type="text" name="first" placeholder="First Name"><br><br>
+					<input type="text" name="last" placeholder="Last Name"><br><br>
+					<input type="text" name="uid" placeholder="User Name"><br><br>
+					<input type="text" name="email" placeholder="Email Address"><br><br>
+					<input type="password" name="pwd" placeholder="Password"><br><br>
+					<button type="submit" name="submit">Submit</button>
+					<a href="login.php" class="login" name="login">Have an account? Login</a>
+				</form>
+			</div>
+		';
+	}
+	else{
+		echo '<h1>YOU ARE LOGGED IN NOW!!!</h1>
+		<div class="calculator">
+			<h1>Enter Value To Calculate</h1>
+			VALUE ONE: <input type="text" id="value1"><br><br>
+			VALUE TWO: <input type="text" id="value2"><br><br>
+			<select id="operator">
+				<option value = "add" >ADD</option>
+				<option value = "sub" >Subtract</option>
+				<option value = "mul" >Multiply</option>
+				<option value = "div" >Divide</option>
+			</select><br><br>
+			<button class ="calc">Calculate</button><br><br>
+		</div>
+		<div class= "calculater"></div>
+	<div> <a href="logout.php">Click Here To Log Out</a></div>';
+
+	}
+?>
+
+
+<div class="sections">
+	<div class="section1">
+		<p>
+			The 72-hour income generator program will help you to set up an online business capable of bringing you N200,000 to N450,000 Naira every single month.
+            You can download the 72-hour income generator training videos on your phone, watch and set up your affiliate marketing online business in the next 7 days.
+		</p>
+	</div>
+	<div class="section2">
+		<p>
+			The 72-hour income generator program will help you to set up an online business capable of bringing you N200,000 to N450,000 Naira every single month.
+            You can download the 72-hour income generator training videos on your phone, watch and set up your affiliate marketing online business in the next 7 days.
+
+		</p>
+	</div>
+	<div class="section3">
+		<p>
+			The 72-hour income generator program will help you to set up an online business capable of bringing you N200,000 to N450,000 Naira every single month.
+            You can download the 72-hour income generator training videos on your phone, watch and set up your affiliate marketing online business in the next 7 days.
+		</p>
+	</div>
+</div>
+</body>
